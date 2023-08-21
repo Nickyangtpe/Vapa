@@ -5,7 +5,6 @@ Vapa是集結了網路上的腳本
 
 Script:
 ``` Lua
-loadstring(game:HttpGet("
-https://raw.githubusercontent.com/Nickyangtpe/Vapa/main/Script.txt
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main/Script.txt
 ", true))()
 ```
