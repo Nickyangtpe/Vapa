@@ -1126,5 +1126,5 @@ end)
 UI:NewDropdown("UI", "UI style", {"LightTheme", "DarkTheme", "GrapeTheme","BloodTheme","Ocean","Midnight","Sentinel","Synapse"}, function(style)
 Library:ToggleUI()
 local Window = Library.CreateLib("Vapa", style)
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main/Main.txt", true))()
 end)
