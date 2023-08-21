@@ -933,11 +933,9 @@ game:GetService("UserInputService").JumpRequest:connect(function()
 end)
 
 
-    local walkspeedold
 Player:NewSlider("Walk Speed", "Walk Speed", 400, 20, function(Walk_Speed) -- 500 (MaxValue) | 0 (MinValue)
 local walkspeedplayer = game:GetService("Players").LocalPlayer
     local walkspeedmouse = walkspeedplayer:GetMouse()
-walkspeedold = Walk_Speed
     if Walk_Speed > 20 then
                 _G.WS = Walk_Speed;
                 local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
@@ -945,23 +943,40 @@ walkspeedold = Walk_Speed
                 Humanoid.WalkSpeed = _G.WS;
                 end)
                 Humanoid.WalkSpeed = _G.WS;
-    end
-end)
-
-Player:NewKeybind("update walking speed", "The speed will be reworked when you respawn, and it will update to your tuned speed when you press the P key", Enum.KeyCode.P, function()
- local walkspeedplayer = game:GetService("Players").LocalPlayer
-    local walkspeedmouse = walkspeedplayer:GetMouse()
-    
-                _G.WS = walkspeedold;
+    else
+                    _G.WS = 20;
                 local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
                 Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
                 Humanoid.WalkSpeed = _G.WS;
                 end)
                 Humanoid.WalkSpeed = _G.WS;
+    end
+    game.Players.PlayerAdded:Connect(function(player)
+    player.CharacterAdded:Connect(function(character)
+        local humanoid = character:WaitForChild("Humanoid")
 
+        humanoid.Died:Connect(function()
+        wait(7)
+    if Walk_Speed > 20 then
+                _G.WS = Walk_Speed;
+                local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+                Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+                Humanoid.WalkSpeed = _G.WS;
+                end)
+                Humanoid.WalkSpeed = _G.WS;
+    else
+                    _G.WS = 20;
+                local Humanoid = game:GetService("Players").LocalPlayer.Character.Humanoid;
+                Humanoid:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+                Humanoid.WalkSpeed = _G.WS;
+                end)
+                Humanoid.WalkSpeed = _G.WS;
+    end
+        end)
+    end)
 end)
 
-
+end)
 
 
 Player:NewSlider("Jump Power", "Jump Power", 5, 1, function(Jump_Power) -- 500 (MaxValue) | 0 (MinValue)
@@ -1040,7 +1055,7 @@ local flyDownSpeed = 20
 local wdown = false
 local toggle = false
 local flying = false
-local speed = 10 
+local speed = 2                        
 local bp = nil
 local bg = nil
 local bodyVel = nil
@@ -1117,10 +1132,208 @@ end)
 end)
 
 
+local FUNTab = Window:NewTab("FUN")
+local FUN = FUNTab:NewSection("Fun")
+FUN:NewButton("Die", "Die", function()
+local player = game.Players.LocalPlayer
+
+local character = player.Character
+        if character then
+            local humanoid = character:FindFirstChild("Humanoid")
+            if humanoid then
+                humanoid.Health = 0
+            end
+        end
+
+end)
+FUN:NewButton("Invisibility(E)", "Invisibility Toggle", function()
+--[[Invisibility Toggle
+
+You can find the orginal concept here: https://v3rmillion.net/showthread.php?tid=544634
+
+This method clones the character locally, teleports the real character to a safe location, then sets the character to the clone.
+Basically, your real character is in the sky while you are on the ground.
 
 
-local UITag = Window:NewTab("UI")
-local UI = UITag:NewSection("UI")
+Because of the way this works, games with a decent anti-cheat will fck this up.
+If you turn it off, you have to go to a safe place before going invisible.
+
+Written by: BitingTheDust ; https://v3rmillion.net/member.php?action=profile&uid=1628149
+]]
+--Settings:
+local ScriptStarted = false
+local Keybind = "E" --Set to whatever you want, has to be the name of a KeyCode Enum.
+local Transparency = true --Will make you slightly transparent when you are invisible. No reason to disable.
+local NoClip = false --Will make your fake character no clip.
+
+local Player = game:GetService("Players").LocalPlayer
+local RealCharacter = Player.Character or Player.CharacterAdded:Wait()
+
+local IsInvisible = false
+
+RealCharacter.Archivable = true
+local FakeCharacter = RealCharacter:Clone()
+local Part
+Part = Instance.new("Part", workspace)
+Part.Anchored = true
+Part.Size = Vector3.new(200, 1, 200)
+Part.CFrame = CFrame.new(0, 1000, 0) --Set this to whatever you want, just far away from the map.
+Part.CanCollide = true
+FakeCharacter.Parent = workspace
+FakeCharacter.HumanoidRootPart.CFrame = Part.CFrame * CFrame.new(0, 5, 0)
+
+for i, v in pairs(RealCharacter:GetChildren()) do
+  if v:IsA("LocalScript") then
+      local clone = v:Clone()
+      clone.Disabled = true
+      clone.Parent = FakeCharacter
+  end
+end
+if Transparency then
+  for i, v in pairs(FakeCharacter:GetDescendants()) do
+      if v:IsA("BasePart") then
+          v.Transparency = 0.7
+      end
+  end
+end
+local CanInvis = true
+function RealCharacterDied()
+  CanInvis = false
+  RealCharacter:Destroy()
+  RealCharacter = Player.Character
+  CanInvis = true
+  isinvisible = false
+  FakeCharacter:Destroy()
+  workspace.CurrentCamera.CameraSubject = RealCharacter.Humanoid
+
+  RealCharacter.Archivable = true
+  FakeCharacter = RealCharacter:Clone()
+  Part:Destroy()
+  Part = Instance.new("Part", workspace)
+  Part.Anchored = true
+  Part.Size = Vector3.new(200, 1, 200)
+  Part.CFrame = CFrame.new(9999, 9999, 9999) --Set this to whatever you want, just far away from the map.
+  Part.CanCollide = true
+  FakeCharacter.Parent = workspace
+  FakeCharacter.HumanoidRootPart.CFrame = Part.CFrame * CFrame.new(0, 5, 0)
+
+  for i, v in pairs(RealCharacter:GetChildren()) do
+      if v:IsA("LocalScript") then
+          local clone = v:Clone()
+          clone.Disabled = true
+          clone.Parent = FakeCharacter
+      end
+  end
+  if Transparency then
+      for i, v in pairs(FakeCharacter:GetDescendants()) do
+          if v:IsA("BasePart") then
+              v.Transparency = 0.7
+          end
+      end
+  end
+ RealCharacter.Humanoid.Died:Connect(function()
+ RealCharacter:Destroy()
+ FakeCharacter:Destroy()
+ end)
+ Player.CharacterAppearanceLoaded:Connect(RealCharacterDied)
+end
+RealCharacter.Humanoid.Died:Connect(function()
+ RealCharacter:Destroy()
+ FakeCharacter:Destroy()
+ end)
+Player.CharacterAppearanceLoaded:Connect(RealCharacterDied)
+local PseudoAnchor
+game:GetService "RunService".RenderStepped:Connect(
+  function()
+      if PseudoAnchor ~= nil then
+          PseudoAnchor.CFrame = Part.CFrame * CFrame.new(0, 5, 0)
+      end
+       if NoClip then
+      FakeCharacter.Humanoid:ChangeState(11)
+       end
+  end
+)
+
+PseudoAnchor = FakeCharacter.HumanoidRootPart
+local function Invisible()
+  if IsInvisible == false then
+      local StoredCF = RealCharacter.HumanoidRootPart.CFrame
+      RealCharacter.HumanoidRootPart.CFrame = FakeCharacter.HumanoidRootPart.CFrame
+      FakeCharacter.HumanoidRootPart.CFrame = StoredCF
+      RealCharacter.Humanoid:UnequipTools()
+      Player.Character = FakeCharacter
+      workspace.CurrentCamera.CameraSubject = FakeCharacter.Humanoid
+      PseudoAnchor = RealCharacter.HumanoidRootPart
+      for i, v in pairs(FakeCharacter:GetChildren()) do
+          if v:IsA("LocalScript") then
+              v.Disabled = false
+          end
+      end
+
+      IsInvisible = true
+  else
+      local StoredCF = FakeCharacter.HumanoidRootPart.CFrame
+      FakeCharacter.HumanoidRootPart.CFrame = RealCharacter.HumanoidRootPart.CFrame
+     
+      RealCharacter.HumanoidRootPart.CFrame = StoredCF
+     
+      FakeCharacter.Humanoid:UnequipTools()
+      Player.Character = RealCharacter
+      workspace.CurrentCamera.CameraSubject = RealCharacter.Humanoid
+      PseudoAnchor = FakeCharacter.HumanoidRootPart
+      for i, v in pairs(FakeCharacter:GetChildren()) do
+          if v:IsA("LocalScript") then
+              v.Disabled = true
+          end
+      end
+      IsInvisible = false
+  end
+end
+
+game:GetService("UserInputService").InputBegan:Connect(
+  function(key, gamep)
+      if gamep then
+          return
+      end
+      if CanInvis and RealCharacter and FakeCharacter then
+          if RealCharacter:FindFirstChild("HumanoidRootPart") and FakeCharacter:FindFirstChild("HumanoidRootPart") then
+              Invisible()
+          end
+      end
+  end
+)
+end)
+FUN:NewTextBox("Teleport TO Player", "Teleport TO Player", function(Player)
+local Players = game:GetService("Players")
+local TeleportingPlayer = Players.LocalPlayer -- 要传送的玩家
+local TargetPlayerName = Player -- 要传送到的目标玩家的用户名
+
+local function TeleportToPlayer(player, targetPlayerName)
+    local targetPlayer = Players:FindFirstChild(targetPlayerName)
+    if targetPlayer then
+        local targetCharacter = targetPlayer.Character
+        if targetCharacter then
+            local targetHumanoidRootPart = targetCharacter:WaitForChild("HumanoidRootPart")
+            local teleportPosition = targetHumanoidRootPart.Position
+            player.Character:MoveTo(teleportPosition)
+        else
+        end
+    end
+end
+
+TeleportToPlayer(TeleportingPlayer, TargetPlayerName)
+
+end)
+
+
+FUN:NewButton("B Tool", "B Tool", function()
+loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/BTools.txt"))()
+end)
+
+
+
+local UITab = Window:NewTab("UI")
+local UI = UITab:NewSection("UI")
 UI:NewKeybind("Close UI/Open UI", "Close UI/Open UI", Enum.KeyCode.F, function()
 	Library:ToggleUI()
 end)
