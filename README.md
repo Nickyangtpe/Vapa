@@ -1,5 +1,5 @@
-# Vapa腳本
-[Vapa](https://github.com/Nickyangtpe/Vapa)是集結了網路上各種的腳本
+# Vapa
+[Vapa](https://github.com/Nickyangtpe/Vapa)It is a collection of various scripts on the Internet
 
 
 Script:
@@ -7,7 +7,7 @@ Script:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main/Main.txt", true))()
 ```
 
-# 腳本來源
+# Script Source
 [RBLXscripts](https://www.rblxscripts.net/)
 
 
@@ -23,6 +23,6 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main
 
 
 
-# 所使用的UI庫
+# The UI Library Used
 
 [Kavo UI Library](https://xheptcofficial.gitbook.io/kavo-library/)
