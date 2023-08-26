@@ -1,5 +1,5 @@
 # Vapa腳本
-[Vapa](https://github.com/Nickyangtpe/Vapa)是集結了網路上的腳本
+[Vapa](https://github.com/Nickyangtpe/Vapa)是集結了網路上各種的腳本
 
 
 Script:
