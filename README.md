@@ -10,18 +10,18 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main
 
 圖片:
 
-![圖片1](https://upload.cc/i1/2023/08/26/HNX6cd.png)
+![a](https://upload.cc/i1/2023/08/26/HNX6cd.png)
 
 
 
 
-![圖片2](https://upload.cc/i1/2023/08/26/D0sCG2.png)
+![b](https://upload.cc/i1/2023/08/26/D0sCG2.png)
 
 
 
 
 
-![圖片3](https://upload.cc/i1/2023/08/26/l6jBUS.png)
+![c](https://upload.cc/i1/2023/08/26/l6jBUS.png)
 
 
 
