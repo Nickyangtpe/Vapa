@@ -23,4 +23,4 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main
 
 # 所使用的UI庫
 
-[Kavo](https://xheptcofficial.gitbook.io/kavo-library/) UI Library
+[Kavo UI Library](https://xheptcofficial.gitbook.io/kavo-library/)
