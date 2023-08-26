@@ -7,6 +7,14 @@ Script:
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main/Main.txt", true))()
 ```
 
+
+圖片:
+
+![圖片]()
+
+
+
+
 # Script Source
 [RBLXscripts](https://www.rblxscripts.net/)
 
