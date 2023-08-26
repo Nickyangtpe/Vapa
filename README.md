@@ -41,6 +41,29 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main
 [Welcome to Bloxburg](https://www.roblox.com/games/185655149/Welcome-to-Bloxburg)
 
 
+[No-ScopeArcade](https://www.roblox.com/games/6407649031/FIXED-No-Scope-Arcade)
+
+
+[Phantom Forces](https://www.roblox.com/games/292439477/Phantom-Forces-Scope-Revamp)
+
+
+[Strucid](https://www.roblox.com/games/2377868063/Strucid)
+
+
+[Custom Duels](https://www.roblox.com/games/2609668898/Custom-Duels)
+
+
+[Giant Simulator](https://www.roblox.com/games/2986677229/Giant-Simulator)
+
+
+[Da Hood](https://www.roblox.com/games/2788229376/Da-Hood)
+
+
+
+[Anime Fighting SimuIator](https://www.roblox.com/games/11545598432/UPDATE-3-Anime-Fighting-Simulator-X)
+
+
+[Kat](https://www.roblox.com/games/621129760/KAT)
 
 # The UI Library Used
 
