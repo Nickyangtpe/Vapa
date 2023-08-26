@@ -10,7 +10,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main
 
 圖片:
 
-![圖片]([img]https://upload.cc/i1/2023/08/26/HNX6cd.png[/img]
+![圖片](https://upload.cc/i1/2023/08/26/HNX6cd.png)
 )
 
 
