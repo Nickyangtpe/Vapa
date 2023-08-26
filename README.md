@@ -68,3 +68,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main
 # The UI Library Used
 
 [Kavo UI Library](https://xheptcofficial.gitbook.io/kavo-library/)
+
+
+# [Lua Protection - LuaObfuscator](https://luaobfuscator.com/)
+
+This script is protected using [Lua Obfuscator](https://luaobfuscator.com/)
