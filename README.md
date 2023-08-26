@@ -13,10 +13,18 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main
 ![圖片](https://upload.cc/i1/2023/08/26/HNX6cd.png)
 
 
+
+
 ![圖片](https://upload.cc/i1/2023/08/26/D0sCG2.png)
 
 
+
+
+
 ![圖片](https://upload.cc/i1/2023/08/26/l6jBUS.png)
+
+
+
 
 # Script Source
 [RBLXscripts](https://www.rblxscripts.net/)
