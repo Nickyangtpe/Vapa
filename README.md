@@ -73,3 +73,10 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main
 # Lua Protection(Code Protection)
 
 This script is protected using [Lua Obfuscator](https://luaobfuscator.com/)
+
+
+# KEY
+This script requires a KEY to use
+
+
+[GET KEY](https://workink.net/2se/llrvr1js)
