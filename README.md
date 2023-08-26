@@ -3,8 +3,7 @@
 [Vapa](https://github.com/Nickyangtpe/Vapa) It is a collection of various scripts on the Internet
 
 
-<small>這是小號字體</small>
-
+<span style="font-size: 12px;">這是小號字體</span>
 
 
 Script:
