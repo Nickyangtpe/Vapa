@@ -8,7 +8,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main
 ```
 
 # 腳本來源
-[Rblxscripts](https://www.rblxscripts.net/)
+[RBLXscripts](https://www.rblxscripts.net/)
 
 
 [Rscripts](https://rscripts.net/index)
