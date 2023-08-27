@@ -5,7 +5,7 @@
 
 Script:
 ``` Lua
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main/Main.txt", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main/Main.lua", true))()
 ```
 
 
