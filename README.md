@@ -1,3 +1,6 @@
+#This script stops development
+This script stops development
+This script stops development
 
 # Vapa 
 [Vapa](https://github.com/Nickyangtpe/Vapa) It is a collection of various scripts on the Internet
