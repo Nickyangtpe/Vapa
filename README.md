@@ -1,4 +1,4 @@
-#This script stops development
+# This script stops development
 
 
 This script stops development
