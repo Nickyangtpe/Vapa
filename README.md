@@ -14,7 +14,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Nickyangtpe/Vapa/main
 ```
 
 
-圖片:
+
 
 ![a](https://i.ibb.co/T4wdpjB/2023-08-26-201749.png)
 
